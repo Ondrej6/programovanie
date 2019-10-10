@@ -1,0 +1,72 @@
+# nacist do promenne string
+slova ='som student univerzity'
+
+
+#\t je tabulator \n je novy riadok
+# prevest na list (dle mezer)
+zoznam=slova.split()
+
+print()
+
+# otoceni na co nejvic zpusobu
+zoznam.(reverse)
+dlzka = len(zoznam)
+for i in [1,2,3,4]:
+    print(i)
+
+print(list(range(-2,4,1)))
+
+list(range(len(zoznam)))
+
+for i in range(len(zoznam)):
+    print(zoznam[i])
+
+for i in zoznam:
+    print(i)
+
+for i in range(len(zoznam)):
+    print(zoznam[len(zoznam)-1-i])
+# vypsani kazdeho druheho na mnoho zpusobu
+for x in zoznam:
+    print(x)
+
+zoznam[0:len(zoznam):2]
+zoznam[::2]
+
+for i in range(len(zoznam)):
+    if i % 2==0:
+        print(zoznam[i])
+       
+ for i in range(len(zoznam)):
+    if i % 2==0:
+        continue
+    print(zoznam[i])
+
+ for i in range(len(zoznam)):
+    if i % 2==0:
+        break
+    print(zoznam[i])
+
+# vypsani prvku, je-li jeho hodnota stejna jako jeho index (hint: enumerate)
+zoznam = list(range(7))
+zoznam = ['a','b','c','d','e']
+print(zoznam)
+list(enumerate(zoznam)) #list je tma aby sme videli co sa tam deje
+
+for x in enumerate(zoznam):
+    print(x)
+    index,prvok=x
+    print('index je', index)
+    print('a prvok je',prvok)
+
+zoznam =[0,2,2,3,5,5]
+for (idx, prvok) in enumerate(zoznam):
+    #print('index je ',idx)
+    #print('prvok je', prvok)
+    if idx==prvok:
+        print(idx)
+
+for i in range(len(zoznam)):
+    if i== zoznam[i]:
+        print(i)
+# a snad jeste spousta dalsich veci :)

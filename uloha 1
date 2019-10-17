@@ -1,0 +1,7 @@
+def scitanie():
+    vstup = input().split()
+    a1= int(vstup[0])
+    a2= int(vstup[1])
+    return a1+a2
+
+print(scitanie())

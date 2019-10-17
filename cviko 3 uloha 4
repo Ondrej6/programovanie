@@ -1,0 +1,15 @@
+def parnasuma():
+    suma=0
+    vstup = input().split()
+    for i in range (len(vstup)):
+        vstup[i]= int(vstup[i])
+    a1= int(vstup[0])
+    a2= int(vstup[1])
+    a3= int(vstup[2])
+    a4= int(vstup[3])
+    for i in range(len(vstup)):
+        if vstup[i] % 2 == 0:
+            suma= vstup[i]+suma
+    return suma
+
+print(parnasuma())

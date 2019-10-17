@@ -1,0 +1,14 @@
+
+
+
+def mensie():
+    vstup = input().split()
+    a1= int(vstup[0])
+    a2= int(vstup[1])
+    for i in range(2):
+        if a1<a2:
+            return a1
+        else:
+            return a2
+
+print(mensie())

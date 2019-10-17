@@ -1,0 +1,12 @@
+def najvacsie():
+    vstup = input().split()
+    for i in range(len(vstup)):
+        vstup[i]=int(vstup[i])
+    for i in range(len(vstup)-1):
+        if vstup[i]<vstup[i+1]:
+            continue
+        else:
+           vstup[i+1]= vstup[i]
+    return vstup[len(vstup)-1]
+
+print(najvacsie())

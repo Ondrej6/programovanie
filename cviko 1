@@ -1,0 +1,80 @@
+# takto se delaji komentare
+# komentare mohou byt na kazdem radku, neovlivnuji beh programu
+
+# takto si muzeme nacist (standardni/zabudovane i vlastni) moduly:
+import random
+
+# Visual Studio (i jine editory) nam po napsani tecky napovidaji funkce vcetne jejich popisu:
+hadane_cislo = random.randint(0, 100)
+
+pocet_pokusu = 0
+
+print('Hadejte cislo od 0 do 100.')
+
+# nacteni vstupu od uzivatele:
+print('Pokud chcete hadat sami, napiste "clovek". Pokud chcete sledovat, jak hada samotny program, napiste "pocitac".')
+hrac = input()
+# uplne stejne to muzeme napsat zkracene na jeden radek:
+# hrac = input('Pokud chcete...')
+
+# zkontrolujeme, zda uzivatel zvolil jednu z moznosti; "!=" znamena NEPLATI (rovnost), opakem je "==" (PLATI):
+if hrac != 'clovek' and hrac != 'pocitac':
+    print('Neplatna volba. Program skonci po stisknuti Enteru.')
+    input()
+    # exit(kod) ukonci program; lepe osetrovat tyto pripady vyjimkami (Exceptions), o tom ale pozdeji
+    exit()
+
+# bude-li hrat pocitac, tak si bude pamatovat meze, ve kterych ma smysl hadat
+if hrac == 'pocitac':
+    nejmensi_mozne = 0
+    nejvetsi_mozne = 100
+
+
+# while (libovolna podminka, stejne jako u ifu); True je specialni hodnota (boolean), ktera je vzdy splnena/pravdiva
+while True:
+
+    # hadani cisla, nejprve pokud hada hrac:
+    if hrac == 'clovek':
+        # input() vraci string (retezec znaku) a chceme-li pracovat s cislem,
+        # musime prevest promennou na cislo pomoci int( ... )
+        tip = int(input('Zadejte svuj tip: '))
+
+    # osetrili jsme na zacatku, ze "hrac" je jen jedna ze dvou moznosti, tudiz uz nemusime kontrolovat promennou a staci else (misto: elif hrac == 'pocitac')
+    else:
+        # pocitacovy hrac bude hrat optimalne a vzdy hadat stred mozneho intervalu
+        tip = (nejvetsi_mozne + nejmensi_mozne) // 2
+
+        # znak "f" pred stringem umoznuje vkladat do textu formatovane promenne a vyrazy (python f-strings)
+        # https://realpython.com/python-f-strings/
+        print(f'Pocitac tipuje cislo {tip}')
+
+    # stejne jako "pocet_pokusu = pocet_pokusu + 1"
+    pocet_pokusu += 1
+
+    # pro porovnavani dvou hodnot se pouzivaji dve rovnitka; jedno rovnitko je naopak prirazeni
+    if tip == hadane_cislo:
+        print(f'Gratuluji, tipli jste spravne hadane cislo {hadane_cislo}, vyhrali jste!')
+
+        # vypisovat promenne muzeme i mene elegantne, napriklad jako:
+        print('Hadani vam zabralo tolik pokusu: ', end='')
+        # pokud bychom end nenastavili na prazdny string "", tak by print() vytiskl i znak konce radku (a dalsi vystup by byl na novem radku)
+        print(pocet_pokusu)
+
+        # celou While smycku ukoncime jen a pouze pokud uzivatel uhodne, pomoci break:
+        break
+    
+    elif tip < hadane_cislo:
+        # elif (=else if) se vyhodnoti jen pokud podminky u predchozich ifu (a elify) nebyly splneny
+        print('Vas tip je moc maly.')
+        if hrac == 'pocitac':
+            # tip pocitace byl moc maly, takze se nam meni nejmensi mozne cislo:
+            nejmensi_mozne = tip + 1
+
+    else:
+        # mohli jsme napsat "elif tip > hadane_cislo", ale je to zbytecne, toto je jedina zbyvajici moznost
+        print('Vas tip je moc velky.')
+        # tip pocitace byl moc velky, takze se nam meni nejvetsi mozne cislo:
+        nejvetsi_mozne = tip - 1
+
+
+input('Stisknete Enter pro ukonceni programu.')

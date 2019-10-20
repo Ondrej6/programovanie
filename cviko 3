@@ -1,0 +1,37 @@
+def f_1(operace):
+    vstup = input().split()
+    a1 = int(vstup[0])
+    a2 = int(vstup[1])
+
+    if operace == 'soucet':
+        return a1 + a2
+    elif operace == 'rozdil':
+        return a1 - a2
+
+def f_2():
+    pass
+
+
+def soucet_a_nasobek(x, y):
+    soucet = x + y
+    nasobek = x * y
+    return soucet, nasobek
+
+vysledek = soucet_a_nasobek(2, 3)
+
+vysl_soucet, vysl_nasobek = vysledek
+vysl_soucet = vysledek[0]
+vysl_nasobek = vysledek[1]
+
+print(vysledek)
+
+def mocniny(x):
+    return x * x, x * x * x
+
+print(mocniny(3))
+druha, treti = mocniny(3)
+
+
+
+for idx, prvek in enumerate([1,2,3]):
+    pass

@@ -1,0 +1,26 @@
+def faktrek(n):
+    if n <= 1:
+        return 1
+    return n * faktrek(n-1)
+
+# print(faktrek(6))
+
+
+
+def vypis_opacne (x, i=None):
+    if i is None:
+        i= len(x)-1
+    if i < 0:
+        return
+    print(x[i],end='')
+    vypis_opacne(x,i-1)
+
+# vypis_opacne('ahoj')
+
+def otoc_seznam(x):
+    if not x:
+        return []
+    return [x[-1]] + otoc_seznam(x[:-1])
+    #vylucovacia podmienka
+
+otoc_seznam([1, 2, 3, 4])

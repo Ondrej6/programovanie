@@ -1,0 +1,15 @@
+def palindrom():
+    novytext=text
+    
+    for i in range(len(text)):
+        if text[i]==' ':
+            novytext= text.replace(' ','')
+    
+    if novytext[::-1]==novytext:
+        return 'True'
+    else:
+        return 'False'
+
+text= input()
+print(palindrom())
+

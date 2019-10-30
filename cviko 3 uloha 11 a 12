@@ -1,0 +1,7 @@
+list=[]
+suma=0
+for i in range(10):
+    list.append(int(input()))
+
+print(sum(list))
+print(max(list))

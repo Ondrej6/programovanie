@@ -1,0 +1,7 @@
+X=int(input())
+N=int(input())
+vysledok=1
+for i in range(N):
+    vysledok=vysledok*X
+
+print(vysledok)

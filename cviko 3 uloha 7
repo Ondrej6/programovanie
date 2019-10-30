@@ -1,0 +1,18 @@
+x=int(input())
+list=[]
+list.append(x)
+if x % 2 == 0:
+    print('je parne')
+else:
+    i=1
+    while i <=4:
+        list.append(int(input()))
+        i+=1
+
+list.sort()
+if list.index(x)== 2:
+    print(sum(list))
+    produkt=1
+    for j in list:
+        produkt= produkt* list[j-1]
+    print (produkt)

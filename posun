@@ -1,0 +1,16 @@
+kolko=int(input())
+co=input()
+kam=input()
+def posun(kolko,co,kam):
+    if kam == 'vlavo':
+        for i in range(kolko):
+            pomoc=co[:1]
+            co=co[1:]+pomoc
+        return co
+    elif kam == 'vpravo':
+        for i in range(kolko):
+            pomoc=co[-1:]
+            co=pomoc+co[:-1]
+        return co
+
+print(posun(kolko,co,kam))

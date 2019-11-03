@@ -1,0 +1,7 @@
+a=int(input())
+cisla=[]
+while a != 42:
+    cisla.append(a)
+    a=int(input())
+
+print(sum(cisla))

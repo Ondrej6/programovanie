@@ -1,0 +1,7 @@
+import math
+
+a=int(input())
+strana =math.sqrt((a**2)/3)
+print(strana)
+print(strana**3)
+print(6*strana**2)

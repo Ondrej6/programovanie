@@ -1,0 +1,22 @@
+k=int(input()) # pocet cifier
+n=int(input()) # ciselna sustava
+vsetko=[0,1,2,3,4,5,6,7,8,9]
+cislice= []
+for i in range(n):
+    cislice.append(i)
+zvysok=[]
+for cislo in vsetko:
+    if cislo not in cislice:
+        zvysok.append(cislo)
+    
+print(zvysok)
+najvacsie_cislo=int(str(max(cislice))*k)
+vysledok={}
+for j in range(najvacsie_cislo+1):
+    if len(str(j))==k:
+        for cislo in zvysok:
+            if str(cislo) in str(j):
+                pass
+            else:
+                vysledok.append(j)
+vysledok= vysledok.set()

@@ -1,0 +1,10 @@
+def orange(n):
+    if n==1:
+        print('orange')
+    else:
+        print('orange')
+        orange(n-1)
+
+
+n=int(input())
+orange(n)

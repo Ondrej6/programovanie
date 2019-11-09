@@ -1,0 +1,15 @@
+def count(x, l,sum=0):
+    if len(l)==0:
+       print(sum)
+       pass
+    else:
+        if l[0]==x:
+           sum+=1
+        del l[0]
+        count(x,l,sum) 
+
+
+
+x=int(input())
+l=[1,2,3,4,5,1,1,1,2,2,3,3,4,5]
+count(x,l)

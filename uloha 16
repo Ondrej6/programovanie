@@ -1,15 +1,31 @@
 def count(x, l,sum=0):
-    if len(l)==0:
+    if len(l)==0: # jina varianta (ne nutne lepsi) toho stejneho:    if not l:
        print(sum)
-       pass
+       pass # tohle tady nemusi byt, nic to nedela
     else:
         if l[0]==x:
            sum+=1
-        del l[0]
-        count(x,l,sum) 
+        del l[0] # jina varianta (ne nutne lepsi) toho stejneho:     l = l[1:]
+        count(x,l,sum)
 
 
 
 x=int(input())
 l=[1,2,3,4,5,1,1,1,2,2,3,3,4,5]
 count(x,l)
+
+#####################
+# casto misto tisknuti vysledku potrebujeme vysledek vratit, potom napr. takto:
+def count_return(x, l,sum=0):
+    if len(l)==0:
+       return sum
+    else:
+        if l[0]==x:
+           sum+=1
+        del l[0]
+        return count_return(x,l,sum)
+
+x=int(input())
+l=[1,2,3,4,5,1,1,1,2,2,3,3,4,5]
+pocet = count_return(x,l)
+print(f'Hodnota {x} se v seznamu vyskytuje {pocet}-krat.')

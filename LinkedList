@@ -1,0 +1,111 @@
+from __future__ import annotations  # pro typovou anotaci v ramci tridy; potrebuje Python 3.7+
+import sys
+import time
+
+fname = '09_spojaky_out.txt'
+f = open(fname, 'w')
+sys.stdout = f
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def prepend(self, data):
+        # prida prvek s danou hodnotou na zacatek seznamu
+        node = Node(data)
+        node.next= self.head
+        self.head = node
+        # TODO
+        pass
+
+    def append(self, data):
+        # prida prvek s danou hodnotou na konec seznamu
+        node = Node(data)
+        if not self.head:
+            self.head = node
+        else:
+            current=self.head
+            while current.next:
+                current=current.next
+            current.next = node
+
+        # TODO
+        pass
+
+    def remove(self, data):
+        # odstrani ze seznamu vsechny prvky s danou hodnotou
+        # TODO
+        pass
+
+    def reverse(self):
+        # obratim poradi svych prvku
+        # TODO
+        pass
+
+    def __add__(self, other: LinkedList) -> LinkedList:
+        # pridam na konec sama sebe druhy seznam, vysledkem je tedy konkatenace
+        current =other.head
+        while current:
+            self.append(current.data)
+            current = current.next
+        # implementuje operator "+"; "x = promenna1 + promenna2" odpovida "x = promenna1.add(promenna2)"
+        # TODO
+        return self
+
+    def __str__(self) -> str:
+        # vytiskne postupne cely seznam, jednotlive prvky oddelene mezerou, napr. "1 2 3 4 " (na posledni mezere nezalezi)
+        # implementuje funkci "print()" pro danou tridu
+        # TODO
+        return ''
+
+
+l = LinkedList()
+
+l.append(2)
+l.append(3)
+l.prepend(1)
+l.append(4)
+print(l)
+
+l.reverse()
+print(l)
+
+l2 = LinkedList()
+for i in range(10, 13):
+    l2.prepend(i)
+print(l2)
+
+l += l2
+print(l)
+
+l.remove(12)
+l.remove(4)
+l.remove(10)
+print(l)
+
+l.remove(11)
+l.prepend(4)
+l.reverse()
+print(l)
+
+f.close()
+sys.stdout = sys.__stdout__
+
+with open(fname) as f:
+    output = [x.strip() for x in f if x]
+print('program output:')
+print(output)
+
+print('correct output:')
+correct_output = [x.strip() for x in open('09_spojaky_out_correct.txt') if x]
+print(correct_output)
+
+time.sleep(1)
+assert (output == correct_output)
